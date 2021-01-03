@@ -1,0 +1,24 @@
+package fileupload.fileuploadspring.service;
+
+import fileupload.fileuploadspring.domain.Files;
+import fileupload.fileuploadspring.repository.FilesRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class FilesService {
+
+    @Autowired
+    public FilesRepository filesRepository;
+
+    public void save(Files files) {
+        Files f = new Files();
+        f.setFilename(files.getFilename());
+        f.setFileOriName(files.getFileOriName());
+        f.setFileurl(files.getFileurl());
+
+        filesRepository.save(f);
+    }
+
+
+}
